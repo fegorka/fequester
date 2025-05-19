@@ -1,0 +1,48 @@
+{
+  "name": "fequester",
+  "description": "api requesting lib for fegorka projects",
+  "version": "0.1.0",
+  "license": "CC-BY-NC-ND-4.0",
+  "homepage": "https://github.com/fegorka/fequester#readme",
+  "author": {
+    "name": "Egor Fokin",
+    "email": "dm@fegorka.com",
+    "url": "https://fegorka.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fegorka/fequester.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fegorka/fequester/issues"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
+    "typecheck": "tsc --noEmit -p tsconfig.json --composite false",
+    "build": "npm run typecheck && tsc"
+  },
+  "main": "dist/index.js",
+  "files": ["dist"],
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "imports": {
+    "#types/*": "src/types/*",
+    "#src/*": "src/types/*"
+  },
+  "peerDependencies": {
+    "axios": "^1.0.0",
+    "electron": "^29.0.0"
+  },
+  "optionalPeerDependencies": {
+    "electron": "^29.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^9.27.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}

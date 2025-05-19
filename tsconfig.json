@@ -1,0 +1,20 @@
+{
+  "include": [
+      "src/*.d.ts",
+      "src/*.ts"
+  ],
+  "compilerOptions": {
+      "target": "ES2022",
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "outDir": "./dist",
+      "strict": true,
+      "sourceMap": true,
+      "baseUrl": ".",
+      "declaration": true,
+      "paths": {
+          "#types/*": [ "src/*.d.ts" ],
+          "#src/*": [ "src/*.ts" ],
+      }
+  }
+}
