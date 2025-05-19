@@ -20,7 +20,8 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
     "typecheck": "tsc --noEmit -p tsconfig.json --composite false",
-    "build": "npm run typecheck && tsc"
+    "build": "npm run typecheck && tsc",
+    "prepare": "tsc"
   },
   "main": "dist/index.js",
   "files": ["dist"],
