@@ -20,21 +20,36 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
     "typecheck": "tsc --noEmit -p tsconfig.json --composite false",
-    "build": "npm run typecheck && tsc",
-    "prepare": "tsc"
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build:esm": "tsc --project tsconfig.json",
+    "build": "npm run typecheck && npm run build:cjs && npm run build:esm",
+    "prepare": "npm run build"
   },
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/cjs/types.d.ts"
+    }
+  },
   "files": [
     "dist",
     "README.md",
     "LICENSE",
     "NOTICE"
   ],
-  "types": "dist/index.d.ts",
-  "type": "module",
+  "types": "dist/cjs/index.d.ts",
   "imports": {
-    "#types/*": "./dist/*.d.ts",
-    "#src/*": "./dist/*.js"
+    "#types/*": {
+      "import": "./dist/esm/*.d.ts",
+      "require": "./dist/cjs/*.d.ts"
+    },
+    "#src/*": {
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
+    }
   },
   "peerDependencies": {
     "axios": "^1.0.0"
