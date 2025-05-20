@@ -1,20 +1,21 @@
 {
   "include": [
-      "src/*.d.ts",
-      "src/*.ts",
+    "src/*.d.ts",
+    "src/*.ts"
   ],
   "compilerOptions": {
-      "target": "ES2022",
-      "module": "nodenext",
-      "moduleResolution": "nodenext",
-      "outDir": "./dist",
-      "strict": true,
-      "sourceMap": true,
-      "baseUrl": "./",
-      "declaration": true,
-      "paths": {
-          "#types/*": [ "src/*.ts" ],
-          "#src/*": [ "src/*.ts" ]
-      }
+    "target": "ES2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "outDir": "./dist/esm",
+    "strict": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "declarationDir": "./dist/esm",
+    "paths": {
+      "#types/*": ["src/*.ts"],
+      "#src/*": ["src/*.ts"]
+    }
   }
 }

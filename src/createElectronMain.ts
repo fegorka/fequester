@@ -3,6 +3,7 @@ import type { ModifierCollection, RequestDraft, ApiLibraryState, HttpMethod, Req
 import { createRequestChain } from '#src/createRequestChain'
 import { createDownloadChain } from '#src/createDownloadChain'
 
+import { createWriteStream } from 'fs'
 import { applyModifiers } from '#src/applyModifiers'
 import { serializeError } from '#src/serializeError'
 
@@ -64,7 +65,7 @@ export function createElectronMain<ModifiersType extends ModifierCollection<Requ
           return axiosInstance
             .request(axiosConfig)
             .then((response: { data: NodeJS.ReadableStream }) => {
-              const writer = require('fs').createWriteStream(payload.savePath!)
+              const writer = createWriteStream(payload.savePath!)
               response.data.pipe(writer)
               return new Promise((resolve, reject) => {
                 writer.on('finish', () => resolve({ data: undefined }))

@@ -8,6 +8,7 @@ import type {
   , ApiResponse
 } from '#types/types'
 
+import { createWriteStream } from 'fs'
 import { applyModifiers } from '#src/applyModifiers'
 import { serializeError } from '#src/serializeError'
 
@@ -59,7 +60,7 @@ export function createDownloadChain<ModifiersType extends ModifierCollection<Req
       state.axios
         .request(axiosConfig)
         .then((response: { data: NodeJS.ReadableStream }) => {
-          const writer = require('fs').createWriteStream(savePath)
+          const writer = createWriteStream(savePath)
           response.data.pipe(writer)
           writer.on('finish', () => resolve({ data: undefined }))
           writer.on('error', (error: any) => reject(serializeError(error, state.errorHandlers)))
