@@ -24,16 +24,20 @@
     "prepare": "tsc"
   },
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
   "types": "dist/index.d.ts",
   "type": "module",
   "imports": {
-    "#types/*": "src/types/*",
-    "#src/*": "src/types/*"
+    "#types/*": "./dist/*.d.ts",
+    "#src/*": "./dist/*.js"
   },
   "peerDependencies": {
-    "axios": "^1.0.0",
-    "electron": "^29.0.0"
+    "axios": "^1.0.0"
   },
   "optionalPeerDependencies": {
     "electron": "^29.0.0"

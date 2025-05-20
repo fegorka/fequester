@@ -1,7 +1,7 @@
 {
   "include": [
       "src/*.d.ts",
-      "src/*.ts"
+      "src/*.ts",
   ],
   "compilerOptions": {
       "target": "ES2022",
@@ -10,11 +10,11 @@
       "outDir": "./dist",
       "strict": true,
       "sourceMap": true,
-      "baseUrl": ".",
+      "baseUrl": "./",
       "declaration": true,
       "paths": {
-          "#types/*": [ "src/*.d.ts" ],
-          "#src/*": [ "src/*.ts" ],
+          "#types/*": [ "src/*.ts" ],
+          "#src/*": [ "src/*.ts" ]
       }
   }
 }
