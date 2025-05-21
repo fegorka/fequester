@@ -12,6 +12,16 @@ import { createWriteStream } from 'fs'
 import { applyModifiers } from '#src/applyModifiers'
 import { serializeError } from '#src/serializeError'
 
+/**
+ * Creates request chain for downloading files
+ *
+ * @param state - Fequester state containing environment and configuration details
+ * @param url - Direct URL to file for download
+ * @param savePath - Local filesystem path for file save
+ * @param draft - Starting requestDraft
+ * @param operations - Modifier operations array for apply to requestDraft
+ * @returns Request chain object for applying modifiers & executing download
+ */
 export function createDownloadChain<ModifiersType extends ModifierCollection<RequestDraft>, EnvironmentType>(
   state: ApiLibraryState<ModifiersType, EnvironmentType>,
   url: string,

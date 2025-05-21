@@ -3,6 +3,14 @@ import type { HttpMethod, ModifierCollection, RequestDraft, ApiLibraryState, Api
 import { createRequestChain } from '#src/createRequestChain'
 import { createDownloadChain } from '#src/createDownloadChain'
 
+/**
+ * Creates API client for use outside of Electron
+ *
+ * @param axiosInstance - Axios instance need for send HTTP requests
+ * @param apiBaseURL - URL for all API requests (https://example.com/api)
+ * @param defaultHeaders - Optional default headers for all API requests
+ * @returns fequester configured API Client
+ */
 export function createApiClient<ModifiersType extends ModifierCollection<RequestDraft>>(
   axiosInstance: any,
   apiBaseURL: string,

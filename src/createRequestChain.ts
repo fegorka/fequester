@@ -11,6 +11,17 @@ import type {
 import { applyModifiers } from '#src/applyModifiers'
 import { serializeError } from '#src/serializeError'
 
+/**
+ * Creates request chain for API requests
+ *
+ * @param state - Fequester state containing environment and configuration details
+ * @param httpMethod - HTTP method (get, post, pust, patch, delete)
+ * @param endpoint - API endpoint URL (/users/123)
+ * @param savePath - Local filesystem path for file save
+ * @param draft - Starting requestDraft
+ * @param operations - Modifier operations array for apply to requestDraft
+ * @returns Request chain object for applying modifiers & executing request
+ */
 export function createRequestChain<ResponseType, ModifiersType extends ModifierCollection<RequestDraft>, EnvironmentType>(
   state: ApiLibraryState<ModifiersType, EnvironmentType>,
   httpMethod: HttpMethod,
