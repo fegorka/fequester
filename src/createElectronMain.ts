@@ -7,6 +7,16 @@ import { createWriteStream } from 'fs'
 import { applyModifiers } from '#src/applyModifiers'
 import { serializeError } from '#src/serializeError'
 
+/**
+ * Creates API client for use in Electron main process
+ *
+ * @param bridge - Electron IPC bridge for communication with renderer
+ * @param channel - Electron IPC channel name
+ * @param axiosInstance - Axios instance need for send HTTP requests
+ * @param apiBaseURL - URL for all API requests (https://example.com/api)
+ * @param defaultHeaders - Optional default headers for all API requests
+ * @returns fequester configured API Client
+ */
 export function createElectronMain<ModifiersType extends ModifierCollection<RequestDraft>>(
   bridge: any,
   channel: string,

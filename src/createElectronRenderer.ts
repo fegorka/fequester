@@ -3,6 +3,14 @@ import type { ModifierCollection, RequestDraft, ApiLibraryState, HttpMethod } fr
 import { createRequestChain } from '#src/createRequestChain'
 import { createDownloadChain } from '#src/createDownloadChain'
 
+/**
+ * Creates API client for use in Electron main process
+ *
+ * @param bridge - Electron IPC bridge for communication with main
+ * @param channel - Electron IPC channel name
+ * @param defaultHeaders - Optional default headers for all API requests
+ * @returns fequester configured API Client
+ */
 export function createElectronRenderer<ModifiersType extends ModifierCollection<RequestDraft>>(
   bridge: any,
   channel: string,
