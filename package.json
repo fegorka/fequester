@@ -18,8 +18,8 @@
   },
   "scripts": {
     "bump": "standard-version --skip.tag",
-    "release": "npm run build && git flow release start `node scripts/nextVersion.js",
-    "finish": "git flow release finish `node scripts/currentVersion.js`",
+    "release": "npm run build && git flow release start `node bin/nextVersion.js`",
+    "finish": "git flow release finish `node bin/currentVersion.js`",
     "format": "prettier --write .",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts,.vue --fix",
     "typecheck": "tsc --noEmit -p tsconfig.json --composite false",
