@@ -67,7 +67,7 @@ export function createRequestChain<ResponseType, ModifiersType extends ModifierC
 
       state.axios
         .request(axiosConfig)
-        .then((response: { data: ResponseType }) => ({ data: response.data }))
+        .then((response: { data: ResponseType }) => resolve({ data: response.data }))
         .catch((error: any) => reject(serializeError(error, state.errorHandlers)))
     })
 
